@@ -569,6 +569,10 @@ for k = 1:length(good_chans)
     sheet = k;
     xlswrite(filename,header,sheet);
     
+    % CAUTION: The excel file is generated only if the innermost folder containing
+    % this code is located at Desktop (due to MATLAB default setting). You
+    % can manually set up the path according to your interest.
+    
     xlRange = 'A2';
     data = {filename_chan};
     xlswrite(filename,data,sheet,xlRange);
