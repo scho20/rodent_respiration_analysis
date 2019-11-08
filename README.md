@@ -10,4 +10,4 @@ The '[Rodent_breathing_analysis.m](https://https://github.com/scho20/rodent_resp
 MATLAB 2018b <br/>
 '.abf' data files
 ### Acknowledgments
-The set of codes above was written based on previously developed code of Dr. Eissa and Suresh and by consulting Prof. Tryba at the University of Chicago Department of Pediatrics Section of Neurology.
+The codes above were written based on previously developed ones of Dr. Eissa and Suresh and by consulting Prof. Tryba at the University of Chicago Department of Pediatrics.
