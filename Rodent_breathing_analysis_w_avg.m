@@ -520,33 +520,36 @@ for k = 1:length(good_chans)
         end
         
         count_h = count_h + 1;
-        
-        %% Averaging the detected peaks
-        timeframe = tw*sr; % timewindow for averaging
-        [avgpeaks_LP, avgpeaks_HP] = avg_peaks(final_locs_l_max, final_locs_h_max, timeframe, xl_filt_offset, xh_filt_offset, k);
-        
-        if length(avgpeaks_LP) == length(avgpeaks_HP)
-            timewindow = 1/sr-timeframe/sr:1/sr:1/sr+timeframe/sr;
-        end
-        
-        % Peak located at t = 0s
-        figure;
-        subplot(2,1,1);
-        plot(timewindow, avgpeaks_LP);
-        xlabel('Time (s)');
-        xlim([min(timewindow), max(timewindow)]);
-        ylabel('Amplitude (AU)');
-        title(['Mean detected peaks: Lowpass (Channel', num2str(good_chans(1,k)), ')']);
-        subplot(2,1,2);
-        plot(timewindow, avgpeaks_HP);
-        xlabel('Time (s)');
-        xlim([min(timewindow), max(timewindow)]);
-        ylabel('Amplitude (AU)');
-        title(['Mean detected peaks: Highpass (Channel', num2str(good_chans(1,k)), ')']);
     end
+        
+    %% Averaging the detected peaks
+    timeframe = tw*sr; % timewindow for averaging
+    [avgpeaks_LP, avgpeaks_HP] = avg_peaks(final_locs_l_max, final_locs_h_max, timeframe, xl_filt_offset, xh_filt_offset, k);
+      
+    if length(avgpeaks_LP) == length(avgpeaks_HP)
+        timewindow = 1/sr-timeframe/sr:1/sr:1/sr+timeframe/sr;
+    end
+        
+    % Peak located at t = 0s
+    figure;
+    subplot(2,1,1);
+    plot(timewindow, avgpeaks_LP);
+    xlabel('Time (s)');
+    xlim([min(timewindow), max(timewindow)]);
+    ylabel('Amplitude (AU)');
+    title(['Mean detected peaks: Lowpass (Channel', num2str(good_chans(1,k)), ')']);
+    subplot(2,1,2);
+    plot(timewindow, avgpeaks_HP);
+    xlabel('Time (s)');
+    xlim([min(timewindow), max(timewindow)]);
+    ylabel('Amplitude (AU)');
+    title(['Mean detected peaks: Highpass (Channel', num2str(good_chans(1,k)), ')']);
     
     elapsed_peak = toc;
-    fprintf('took %.3f seconds. \n', elapsed_peak);   
+    fprintf('took %.3f seconds. \n', elapsed_peak);
+    
+    fprintf('Please check figures and press spacebar to continue. \n');
+    pause;
     
     %% Calculating the period and frequency of the detected peaks
     period_LP = cellsize;
