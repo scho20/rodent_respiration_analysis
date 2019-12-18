@@ -12,4 +12,4 @@ The '[Rodent_breathing_analysis_bandpass.m](https://github.com/scho20/rodent_res
 MATLAB 2018b <br/>
 '.abf' data files
 ### Acknowledgments
-The codes above were written based on previously developed ones of Dr. Eissa and Suresh and by consulting Prof. Tryba at the University of Chicago Department of Pediatrics.
+The codes above were written based on previously developed ones of Drs. Eissa and Suresh and by consulting Prof. Tryba at the University of Chicago Department of Pediatrics.
